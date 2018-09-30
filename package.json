@@ -1,0 +1,36 @@
+{
+  "name": "9report",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-notify": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-tinypng-compress": "1.2.1",
+    "jshint": "^2.9.4"
+  },
+  "dependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-font-spider": "^0.3.6",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-md5-assets": "^0.2.0",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-tinypng-compress": "^1.2.1",
+    "node-sass": "^4.5.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "description": "pgds"
+}

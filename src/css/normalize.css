@@ -1,0 +1,66 @@
+﻿/* 初始化CSS */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img{margin:0 auto; padding:0;}
+h1, h2, h3, h4, h5, h6{font-size:100%;font-weight:normal;}
+body,html{ overflow: visible; min-width: 1200px;}
+fieldset, img{vertical-align:middle; border:none;}
+ul, ol{list-style:none;}
+li{list-style-type:none;}
+input{padding-top:0; padding-bottom:0;}
+select, input{vertical-align:middle;}
+select, input, textarea{font-size:12px; margin:0;}
+a,input[type="text"], input[type="password"], textarea{outline-style:none;}
+textarea{resize:none;}
+table{border-collapse:collapse;}
+body { color: #666; font: 12px "","Helvetica Neue", Helvetica, Arial, "PingFang SC","Heiti SC", "SOURCEHANSANSCN-NORMAL", "WenQuanYi Micro Hei", sans-serif; background: #fff; }
+a{color:#666; text-decoration:none; outline:none;}
+.clearfix:after{content:"."; display:block; height:0; visibility:hidden; clear:both;}
+.clearfix{zoom:1;}
+.clearit{clear:both; height:0; font-size:0; overflow:hidden;}
+.hidden{display: none;}
+.clear{ clear:both}
+a:hover img{filter:alpha(opacity=85);opacity: 0.85;}
+a:hover input.btn{filter:alpha(opacity=85);opacity: 0.85;}
+a,a img,input{-webkit-transition:All 0.20s ease;transition:All 0.20s ease;}
+/*鼠标进去input输入信息离开input之后颜色自动变深*/
+input:focus,input[placeholder]{color:#333;}
+/* 去除number的右边箭头 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+/* IE6下PNG图片透明 */
+img, div{behavior: url("iepng/iepngfix.htc");}
+/*去除input button submit黑边，ie7   filter:chroma(color=#000000);*/
+/*去除ie10+的input的右边的叉叉和眼睛*/
+input::-ms-clear,input::-ms-reveal{display:none;}
+/*文字超出出现三个省略号ie7+ chrome firefox全部兼容*/
+.text-overflow{overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+/*声明 WebFont 下载相应字体包ttf格式  然后只用把ttf丢到font里面 文档自动生成相应字体*/
+@font-face {
+    font-family: 'pinghei';
+    src: url('../assets/static-font/SourceHanSansK-Normal.eot');
+    src: 
+      url('../assets/static-font/SourceHanSansK-Normal.eot?#font-spider') format('embedded-opentype'),
+      url('../assets/static-font/SourceHanSansK-Normal.woff') format('woff'),
+      url('../assets/static-font/SourceHanSansK-Normal.ttf') format('truetype'),
+      url('../assets/static-font/SourceHanSansK-Normal.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }  
+  /*使用选择器指定字体*/
+body,input, textarea {
+      font-family: 'pinghei';
+}
+/* 使用了这种字体在ie10 11不会居中 所以ie10 11要设置默认字体就行了  */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body,input,textarea{
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC","Heiti SC", "SOURCEHANSANSCN-NORMAL", "WenQuanYi Micro Hei";}
+}
+
+
+
+
+
+
