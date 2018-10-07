@@ -32,15 +32,15 @@ AddClassFn1.prototype.initFirstPage = function () {
     if (initTime == 10) {
         $('#page1 .slidebox1').addClass('fadeIn')
     }
-    if (initTime == 80) {
-        $('#page1 .keyboard img').addClass('fadeInLeft')
-    }
-    if (initTime == 90) {
-        $('#page1 .coffee img').addClass('fadeInUp')
-    }
-    if (initTime == 100) {
-        $('#page1 .jsq img').addClass('fadeInRight')
-    }
+    // if (initTime == 80) {
+    //     $('#page1 .keyboard img').addClass('fadeInLeft')
+    // }
+    // if (initTime == 90) {
+    //     $('#page1 .coffee img').addClass('fadeInUp')
+    // }
+    // if (initTime == 100) {
+    //     $('#page1 .jsq img').addClass('fadeInRight')
+    // }
     if (initTime == 20) {
         $('.slide1 .title').addClass('fadeInUp')
     }
@@ -54,7 +54,7 @@ AddClassFn1.prototype.initFirstPage = function () {
         $('.slide1 .plimg2,.slide1 .plimg6').addClass('fadeInUp')
     }
     if (initTime == 60) {
-        $('.slide1 .plimg3,.slide1 .plimg7').removeClass('fadeInUp')
+        $('.slide1 .plimg3,.slide1 .plimg7').addClass('fadeInUp')
     }
     if (initTime == 70) {
         $('.slide1 .plimg4,.slide1 .plimg8').addClass('fadeInUp')
@@ -342,13 +342,16 @@ AddClassFn11.prototype.initFirstPage = function () {
     this.initTime++;
     var initTime = this.initTime;
     if (initTime == 80) {
-        $('#page' + this.divNum + ' .keyboard img').addClass('fadeInLeft')
+        $('#page' + this.divNum + ' .keyboard img').addClass('fadeInLeft');
+        $('#page' + this.divNum + ' .reprotLogo img').addClass('fadeInLeft')
     }
     if (initTime == 90) {
-        $('#page' + this.divNum + ' .coffee img').addClass('fadeInUp')
+        $('#page' + this.divNum + ' .coffee img').addClass('fadeInUp');
+        $('#page' + this.divNum + ' .f-text img').addClass('fadeInUp')
     }
     if (initTime == 100) {
-        $('#page' + this.divNum + ' .pen img').addClass('fadeInUp')
+        $('#page' + this.divNum + ' .pen img').addClass('fadeInUp');
+        $('#page' + this.divNum + ' .wxcode img').addClass('fadeInUp')
     }
     if (initTime == 110) {
         $('#page' + this.divNum + ' .jsq img').addClass('fadeInRight')
@@ -386,3 +389,5 @@ SmallIconFadeOut.prototype.initFirstPage = function () {
     }
     window.requestAnimationFrame(this.initFirstPage.bind(this))
 };
+
+

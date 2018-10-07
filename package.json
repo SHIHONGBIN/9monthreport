@@ -32,5 +32,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "description": "pgds"
+  "description": "pgds",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SHIHONGBIN/9monthreport.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SHIHONGBIN/9monthreport/issues"
+  },
+  "homepage": "https://github.com/SHIHONGBIN/9monthreport#readme"
 }

@@ -68,130 +68,16 @@
                 <img src="../images/indexMonthimg.png" alt="" class="animated">
             </div>
 
-            <canvas id="canvas"></canvas>
+            <canvas id="canvas0"></canvas>
             <div class="btn">
                 <div class="r-btn imgBox">
                     <img src="../images/btnright.png" alt="" class="animated">
                 </div>
                 <div class="l-btn imgBox" class="animated fadeIn"></div>
             </div>
+            </div>
 
 
-
-
-            <script>
-                (function () {
-                    var canvas = document.getElementById('canvas');
-                    var ctx = canvas.getContext('2d');
-                    var body = document.getElementsByTagName('body')[0];
-                    const screenWidth = body.offsetWidth;
-                    const screenHeight = body.offsetHeight;
-                    canvas.width = screenWidth;
-                    canvas.height = screenHeight;
-                    //保存气泡坐标数组
-                    var qipaoArr = [];
-                    var imginit = 0;
-                    const rgbArr = ['#ff831f', '#dc4ba6', '#ff6650', '#fad7b7', '#f1cee6']
-                    const gridierArr = ['rgba(215,59,42,.3)', 'rgba(211, 26, 128,.3)']
-                    //绘制气泡
-                    function drawQipao(border, arr) {
-                        
-                        
-                        if (arr.length <= 10) {
-                            console.log(arr)
-                            var rgb, x, y, r, opacity;
-                            x = 100 + Math.round((Math.random() * (screenWidth - 200)).toFixed(2)) + .5;
-                            y = screenHeight/2 + Math.round((Math.random() * (screenHeight/2)).toFixed(2)) + .5;
-                            opacity = 0;
-                            r = 10 + Math.round((Math.random() * 40).toFixed(2)) + .5;
-                            stepY = .2+ Math.floor(Math.random()*200)/100
-                            if (border === true) {
-                                //空心
-                                ctx.beginPath();
-                                ctx.lineWidth = .1;
-                                ctx.globalAlpha = 0;
-                                rgb = rgbArr[Math.floor(Math.random() * rgbArr.length)]
-                                ctx.strokeStyle = rgb;
-                                ctx.arc(x, y, r, 0, Math.PI * 2)
-                                ctx.stroke();
-                                ctx.closePath();
-                            } else {
-                                //实心
-                                ctx.beginPath();
-                                ctx.globalAlpha = 0;
-                                var rgb = ctx.createLinearGradient(x-r,y-r,x+r,y+r);
-                                rgb.addColorStop(0, gridierArr[0]);
-                                rgb.addColorStop(1,gridierArr[1]);
-                                ctx.fillStyle = rgb;
-                                ctx.arc(x, y, r, 0, Math.PI * 2);
-                                ctx.fill();
-                            }
-                            // }  
-                            qipaoArr.push({
-                                x: x,
-                                y: y,
-                                r: r,
-                                rgb: rgb,
-                                border: border,
-                                stepY:stepY,
-                                opacity:opacity
-                            })
-                        } else {
-                            for (var i = 0; i < arr.length; i++) {
-                                if (arr[i].border) {
-                                    //空心
-                                    ctx.beginPath();
-                                    ctx.lineWidth = .1;
-                                    ctx.globalAlpha = arr[i].opacity;
-                                    ctx.strokeStyle = arr[i].rgb;
-                                    ctx.arc(arr[i].x, arr[i].y, arr[i].r, 0, Math.PI * 2)
-                                    ctx.stroke();
-                                    ctx.closePath();
-                                } else {
-                                    //实心
-                                    ctx.beginPath();
-                                    ctx.globalAlpha = arr[i].opacity;
-                                    ctx.fillStyle = arr[i].rgb;
-                                    ctx.arc(arr[i].x, arr[i].y, arr[i].r, 0, Math.PI * 2)
-                                    ctx.fill();
-                                }
-                            }
-                        }
-                    }
-
-                    function drawHowMuch(num) {
-                        qipaoArr.map((item,index,arr)=>{
-                            if(item.y>-item.r*2){
-                                item.y-=item.stepY;
-                                if(item.opacity<.8){
-                                    item.opacity += .01;
-                                }else{
-                                    item.opacity = .8
-                                }
-                            }else{
-                                arr.splice(arr.indexOf(item),1)
-                            }
-                        })
-                        for (var i = 0; i < num; i++) {
-                            const random = Math.random() * 1;
-                            if (random > .5) {
-                                drawQipao(true, qipaoArr)
-                            } else {
-                                drawQipao(false, qipaoArr)
-                            }
-                        }
-                    }
-                 
-                    function animateQipao() {
-                        ctx.clearRect(0, 0, screenWidth, screenHeight);
-                        drawHowMuch(10);
-                        window.requestAnimationFrame(animateQipao)
-                    }
-                    animateQipao();
-
-
-                })()
-            </script>
 
             <div id="page1" class="page animated" style="opacity: 0">
                 <div class="page-con">
@@ -226,28 +112,28 @@
                     <nav class="text">
                         <ul>
                             <li class="hover animated" style="opacity: 0;">
-                                <a href="javascript:void(0)">01 综述</a>
+                                <a href="javascript:void(0)">综述</a>
                             </li>
                             <li class="animated" style="opacity: 0;">
-                                <a href="javascript:void(0)">02 成交量</a>
+                                <a href="javascript:void(0)">成交量</a>
                             </li>
                             <li class="animated" style="opacity: 0;">
-                                <a href="javascript:void(0)">03 出借方式</a>
+                                <a href="javascript:void(0)">出借方式</a>
                             </li>
                             <li class="animated" style="opacity: 0;">
-                                <a href="javascript:void(0)">04 赚取收益</a>
+                                <a href="javascript:void(0)">赚取收益</a>
                             </li>
                             <li class="animated" style="opacity: 0;">
-                                <a href="javascript:void(0)">05 已还本息</a>
+                                <a href="javascript:void(0)">已还本息</a>
                             </li>
                             <li class="animated" style="opacity: 0;">
-                                <a href="javascript:void(0)">06 项目分布</a>
+                                <a href="javascript:void(0)">项目分布</a>
                             </li>
                             <li class="animated" style="opacity: 0;">
-                                <a href="javascript:void(0)">07 用户注册</a>
+                                <a href="javascript:void(0)">用户注册</a>
                             </li>
                             <li class="animated" style="opacity: 0;">
-                                <a href="javascript:void(0)">08 最新动态</a>
+                                <a href="javascript:void(0)">最新动态</a>
                             </li>
                         </ul>
                     </nav>
@@ -312,16 +198,16 @@
                             <img src="../images/p4/title.png" alt="" class="title animated" style="opacity: 0;">
                             <div class="flex-box">
                                 <div class="l-flex animated">
-                                    <img src="../images/p4/p41.jpg" alt="" class="plimg1 animated" style="opacity: 0;">
+                                    <img src="../images/p4/p41.png" alt="" class="plimg1 animated" style="opacity: 0;">
                                 </div>
                                 <div class="r-flex animated">
-                                    <img src="../images/p4/p42.jpg" alt="" class="plimg3 animated" style="opacity: 0;">
+                                    <img src="../images/p4/p42.png" alt="" class="plimg3 animated" style="opacity: 0;">
                                 </div>
                                 <div class="l-flex animated">
-                                    <img src="../images/p4/p43.jpg" alt="" class="plimg2 animated" style="opacity: 0;">
+                                    <img src="../images/p4/p43.png" alt="" class="plimg2 animated" style="opacity: 0;">
                                 </div>
                                 <div class="r-flex animated">
-                                    <img src="../images/p4/p44.jpg" alt="" class="plimg4 animated" style="opacity: 0;">
+                                    <img src="../images/p4/p44.png" alt="" class="plimg4 animated" style="opacity: 0;">
                                 </div>
                             </div>
                             <p class="data-p animated" style="opacity: 0;">截止2018年8月31日</p>
@@ -406,27 +292,28 @@
                 </div>
             </div>
             <div id="page2" class="page animated" style="opacity: 0;">
-                <div class="keyboard imgBox">
-                    <img src="../images/keyboard.png" alt="" class="animated" style="opacity: 0;">
+                    <canvas id="canvas1"></canvas>
+                <div class="wxcode imgBox">
+                    <img src="../images/wxcodeimg.png" alt="" class="animated" style="opacity: 0;">
                 </div>
-                <div class="coffee imgBox">
-                    <img src="../images/koffee.png" alt="" class="animated" style="opacity: 0;">
+                <div class="f-text imgBox">
+                    <img src="../images/footerpagetext.png" alt="" class="animated" style="opacity: 0;">
                 </div>
-                <div class="pen imgBox">
-                    <img src="../images/pen.png" alt="" class="animated" style="opacity: 0;">
+                <div class="reprotLogo imgBox">
+                    <img src="../images/logo.png" alt="" class="animated" style="opacity:0">
                 </div>
-                <div class="jsq imgBox">
+                <!-- <div class="jsq imgBox">
                     <img src="../images/jsq.png" alt="" class="animated" style="opacity: 0;">
                 </div>
                 <div class="body-con imgBox">
                     <img src="../images/bodyimg2.png" alt="" class="animated" style="opacity: 0;">
-                </div>
-                <a href="javascript:void(0)" class="gotoHome animated" id="gotoIndex" style="opacity: 0;">回到首屏</a>
+                </div> -->
+                <a href="javascript:void(0)" class="gotoHome animated" id="gotoIndex" style="opacity: 0;">返回首页</a>
                 <div class="btn">
                     <div class="r-btn imgBox">
                     </div>
                     <div class="l-btn imgBox">
-                        <img src="../images/btnleft.png" alt="" class="animated">
+                        <img src="../images/btnleft.png" alt="" class="animated" style="opacity:0" >
                     </div>
                 </div>
             </div>
@@ -448,44 +335,44 @@
                 rbtn.on('click', function () {
                     $('#page1>div>img').removeClass(
                         'fadeInUp bounceInUp fadeInRight fadeInLeft fadeInRight fadeIn bounceInUp');
-                    $(this).parents('.page').addClass('fadeOutLeft')
-                        .next().removeClass('fadeOutRight fadeInLeft').addClass('fadeInRight');
+                    $(this).parents('.page').addClass('fadeOutDown')
+                        .next().removeClass('fadeOutDown fadeOutUp fadeInDown').addClass('fadeInDown');
                     $('#page1 li').removeClass('bounceInUp')
                     changeTabFn(curPage);
                     $('#page1>div>img').removeClass(
                         'fadeOutLeft fadeOutRight fadeOutDown fadeInRight fadeInLeft fadeInUp')
                 });
                 lbtn.on('click', function () {
-                    var fn = new SmallIconFadeOut(2);
-                    fn.initFirstPage();
+                    // var fn = new SmallIconFadeOut(2);
+                    // fn.initFirstPage();
                     setTimeout(function () {
-                        $('#page2').addClass('fadeOutRight')
-                            .prev().removeClass('fadeOutLeft').addClass('fadeInLeft');
+                        $('#page2').addClass('fadeOutUp')
+                            .prev().removeClass('fadeInRight fadeOutDown fadeOutUp').addClass('fadeInUp');
                         $('#page1 li').removeClass('bounceInUp')
                         changeTabFn(curPage)
-                        $('#page2').find('img').removeClass(
-                            'fadeOutLeft fadeOutRight fadeOutDown fadeInRight fadeInLeft fadeInUp')
+                        $('#page2').find('img,a').removeClass(
+                            'fadeOutLeft fadeOutRight fadeIn fadeOutDown fadeInRight fadeInLeft fadeInUp')
                         $('#page1>div>img').removeClass('fadeInUp fadeInRight fadeInLeft');
-                    }, 1000)
+                    }, 150)
                 });
                 //回到第一屏
                 gotoIndex.on('click', function () {
                     var fn = new SmallIconFadeOut(2);
                     fn.initFirstPage();
                     setTimeout(function () {
-                        $('#page0').removeClass('fadeOutLeft').addClass('fadeInLeft')
-                            .next().removeClass('fadeOutLeft fadeInLeft')
+                        $('#page0').removeClass('fadeOutLeft fadeOutDown fadeOutUp').addClass('fadeInUp')
+                            // .next().removeClass('fadeOutLeft fadeInLeft fadeOutDown fadeOutUp')
                         $('#page0').find('img,.data-p,.l-flex,.r-flex').removeClass(
                             'fadeInUp bounceInUp fadeInRight fadeInLeft fadeInRight fadeIn bounceInUp'
                         );
                         // $('#page1').removeClass('fadeOutLeft')
-                        gotoIndex.parents('.page').addClass('fadeOutRight')
+                        gotoIndex.parents('.page').addClass('fadeOutUp')
                         var a1 = new AddClassFn0();
                         a1.initFirstPage();
                         curPage = 0;
-                        $('#page2').find('img').removeClass(
-                            'fadeOutLeft fadeOutRight fadeOutDown fadeInRight fadeInLeft fadeInUp')
-                    }, 1000)
+                        $('#page2').find('img,a').removeClass(
+                            'fadeOutLeft fadeOutRight fadeOutDown fadeIn fadeInRight fadeInLeft fadeInUp')
+                    }, 150)
                 });
             }
             ChangePage();
@@ -500,8 +387,8 @@
                 rbtn.on('click', function (e) {
                     e.stopImmediatePropagation();
                     if (curPage == 7) {
-                        $('#page2').removeClass('fadeOutRight').addClass('fadeInRight')
-                            .prev().removeClass('fadeInRight').addClass('fadeOutLeft');
+                        $('#page2').removeClass('fadeOutRight fadeOutDown fadeOutUp').addClass('fadeInDown')
+                            .prev().removeClass('fadeInRight fadeOutDown fadeOutUp').addClass('fadeOutDown');
                         // $('#page2,#page1 .slide:last-child(),#page1').find('img,.data-p,.l-flex,.r-flex,a').removeClass('fadeInUp bounceInUp fadeInRight fadeInLeft fadeInRight fadeIn bounceInUp');
                         $('#page1 li').removeClass('bounceInUp')
                         var a11 = new AddClassFn11();
@@ -520,8 +407,8 @@
                         fn.initFirstPage();
 
                         setTimeout(function () {
-                            $('#page0').removeClass('fadeOutLeft').addClass('fadeInLeft')
-                                .next().removeClass('fadeInRight').addClass('fadeOutRight');
+                            $('#page0').removeClass('fadeOutDown fadeOutUp').addClass('fadeInUp')
+                                .next().removeClass('fadeInDown fadeInUp fadeOutUp').addClass('fadeOutUp');
                             $('#page0,#page1 .slide:first-child()').find('img,.data-p,.l-flex,.r-flex')
                                 .removeClass(
                                     'fadeInUp bounceInUp fadeInRight fadeInLeft fadeInRight fadeIn bounceInUp'
@@ -635,15 +522,119 @@
         </script>
 
         <script>
-            // path1
-            (function () {
-                // var obj = document.querySelector("#path1");
-                // var length = obj.getTotalLength();
-                // var ob2 = document.querySelector("#path2");
-                // var length2 = obj2.getTotalLength();
-                // var ob2 = document.querySelector("#path3");
-                // var length2 = obj3.getTotalLength();
-            })()
+          //首页效果
+function indexFn() {
+    var canvas = document.getElementById('canvas'+arguments[0]);
+    var ctx = canvas.getContext('2d');
+    var body = document.getElementsByTagName('body')[0];
+    const screenWidth = body.offsetWidth;
+    const screenHeight = body.offsetHeight;
+    canvas.width = screenWidth;
+    canvas.height = screenHeight;
+    //保存气泡坐标数组
+    var qipaoArr = [];
+    var imginit = 0;
+    const rgbArr = ['#ff831f', '#dc4ba6', '#ff6650', '#fad7b7', '#f1cee6']
+    const gridierArr = ['rgba(215,59,42,.3)', 'rgba(211, 26, 128,.3)']
+    //绘制气泡
+    function drawQipao(border, arr) {
+        
+        
+        if (arr.length <= 10) {
+            var rgb, x, y, r, opacity;
+            x = 100 + Math.round((Math.random() * (screenWidth - 200)).toFixed(2)) + .5;
+            y = screenHeight/2 + Math.round((Math.random() * (screenHeight/2)).toFixed(2)) + .5;
+            opacity = 0;
+            r = 10 + Math.round((Math.random() * 40).toFixed(2)) + .5;
+            stepY = .2+ Math.floor(Math.random()*200)/100
+            if (border === true) {
+                //空心
+                ctx.beginPath();
+                ctx.lineWidth = .1;
+                ctx.globalAlpha = 0;
+                rgb = rgbArr[Math.floor(Math.random() * rgbArr.length)]
+                ctx.strokeStyle = rgb;
+                ctx.arc(x, y, r, 0, Math.PI * 2)
+                ctx.stroke();
+                ctx.closePath();
+            } else {
+                //实心
+                ctx.beginPath();
+                ctx.globalAlpha = 0;
+                var rgb = ctx.createLinearGradient(x-r,y-r,x+r,y+r);
+                rgb.addColorStop(0, gridierArr[0]);
+                rgb.addColorStop(1,gridierArr[1]);
+                ctx.fillStyle = rgb;
+                ctx.arc(x, y, r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            // }  
+            qipaoArr.push({
+                x: x,
+                y: y,
+                r: r,
+                rgb: rgb,
+                border: border,
+                stepY:stepY,
+                opacity:opacity
+            })
+        } else {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].border) {
+                    //空心
+                    ctx.beginPath();
+                    ctx.lineWidth = .1;
+                    ctx.globalAlpha = arr[i].opacity;
+                    ctx.strokeStyle = arr[i].rgb;
+                    ctx.arc(arr[i].x, arr[i].y, arr[i].r, 0, Math.PI * 2)
+                    ctx.stroke();
+                    ctx.closePath();
+                } else {
+                    //实心
+                    ctx.beginPath();
+                    ctx.globalAlpha = arr[i].opacity;
+                    ctx.fillStyle = arr[i].rgb;
+                    ctx.arc(arr[i].x, arr[i].y, arr[i].r, 0, Math.PI * 2)
+                    ctx.fill();
+                }
+            }
+        }
+    }
+
+    function drawHowMuch(num) {
+        qipaoArr.map((item,index,arr)=>{
+            if(item.y>-item.r*2){
+                item.y-=item.stepY;
+                if(item.opacity<.8){
+                    item.opacity += .01;
+                }else{
+                    item.opacity = .8
+                }
+            }else{
+                arr.splice(arr.indexOf(item),1)
+            }
+        })
+        for (var i = 0; i < num; i++) {
+            const random = Math.random() * 1;
+            if (random > .5) {
+                drawQipao(true, qipaoArr)
+            } else {
+                drawQipao(false, qipaoArr)
+            }
+        }
+    }
+ 
+    function animateQipao() {
+        ctx.clearRect(0, 0, screenWidth, screenHeight);
+        drawHowMuch(10);
+        window.requestAnimationFrame(animateQipao)
+    }
+    animateQipao();
+
+
+}
+indexFn(0);
+indexFn(1);
         </script>
 
 </body>
