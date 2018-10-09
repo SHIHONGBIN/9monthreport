@@ -16,7 +16,7 @@ AddClassFn0.prototype.initFirstPage = function () {
         $('#page' + this.divNum + ' .reportSubTitle img').addClass('fadeInUp')
     }
     if (initTime == 190) {
-        $('#page' + this.divNum + ' .r-btn img').addClass('fadeInRight')
+        $('#page' + this.divNum + ' .r-btn img').addClass('fadeIn')
     }
     window.requestAnimationFrame(this.initFirstPage.bind(this))
 }

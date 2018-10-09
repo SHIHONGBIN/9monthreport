@@ -50,9 +50,9 @@ input::-ms-clear,input::-ms-reveal{display:none;}
     font-style: normal;
   }  
   /*使用选择器指定字体*/
-body,input, textarea {
+/* body,input, textarea {
       font-family: 'pinghei';
-}
+} */
 /* 使用了这种字体在ie10 11不会居中 所以ie10 11要设置默认字体就行了  */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   body,input,textarea{
